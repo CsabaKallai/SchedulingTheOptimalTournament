@@ -1,0 +1,40 @@
+﻿@model Ligak_Optimalis_Kialakitasa.Models.Tournament
+
+    <div class="content">
+        <h2>@Model.NameOfTournament</h2>
+        @foreach (var team in Model.Teams)
+        {
+            <p>  @team.Name</p>
+            @if (@team.Coordinate.Latitude == CoordinateHelperLatitude.Északi)
+            {
+                @if (@team.Coordinate.Longitude == CoordinateHelperLongitude.Nyugati)
+                {
+                    <p>  É.Sz @team.Coordinate.LatitudeValue Ny.H @team.Coordinate.LongitudeValue</p>
+                }
+                else
+                {
+                    <p>  É.Sz @team.Coordinate.LatitudeValue K.H @team.Coordinate.LongitudeValue</p>
+                }
+
+            }
+            else
+            {
+                @if (@team.Coordinate.Longitude == CoordinateHelperLongitude.Nyugati)
+                {
+                    <p>  D.Sz @team.Coordinate.LatitudeValue Ny.H @team.Coordinate.LongitudeValue</p>
+                }
+                else
+                {
+                    <p>  D.Sz @team.Coordinate.LatitudeValue K.H @team.Coordinate.LongitudeValue</p>
+                }
+            }
+            <hr class="line"/>
+        }
+
+
+        <form action="Result" method="get">
+            <div class="form-group" style="text-align:center">
+                <input type="submit" value="Bajnokság generálása" class="w3-button w3-red w3-large w3-opacity" />
+            </div>
+        </form>
+    </div>

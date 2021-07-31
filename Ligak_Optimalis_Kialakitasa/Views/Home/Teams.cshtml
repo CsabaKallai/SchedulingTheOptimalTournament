@@ -1,0 +1,99 @@
+﻿@model Ligak_Optimalis_Kialakitasa.Models.Tournament
+<div class="content" style="width:650px">
+    <form asp-action="Teams" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <label asp-for="NameOfTournament"></label>
+            <input asp-for="NameOfTournament" required type="text" />
+            <span asp-validation-for="NameOfTournament"></span>
+        </div>
+
+        <h2>Csapatok bevitele</h2>
+
+        <div style="line-height: 1.7">
+            <table id="tableteams">
+                <thead>
+                    <tr>
+                        <th scope="col" align="center">
+                            A csapatok nevei
+                        </th>
+                        <th scope="col" align="center">
+                            A csapatok koordinátái
+                        </th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Teams.Length; i++)
+                    {
+                        <tr>
+                            <td>
+                                @if (Model.Teams[i].Name == "Hibás név!")
+                                {
+                                    <input type="text" id="csapat" name="@(i)csapat" placeholder="Hibás név" />
+                                }
+                                else if (Model.Teams[i].Name == null)
+                                {
+                                    <input type="text" id="csapat" name="@(i)csapat" />
+                                }
+                            </td>
+
+                            <td>
+                                @if (Model.Teams[i].Coordinate.LatitudeValue <= 0 && Model.Teams[i].Coordinate.LongitudeValue <= 0)
+                                {
+                                    <select name="@(i)Koordinata_szelesseg">
+                                        @if (Model.Teams[i].Coordinate.Latitude == CoordinateHelperLatitude.Északi)
+                                        {
+                                            <option value="Északi" selected>
+                                                Északi
+                                            </option>
+                                            <option value="Déli">
+                                                Déli
+                                            </option>
+                                        }
+                                        else
+                                        {
+                                            <option value="Északi">
+                                                Északi
+                                            </option>
+                                            <option value="Déli" selected>
+                                                Déli
+                                            </option>
+                                        }
+                                    </select>
+                                    <label> Szélesség</label>
+                                    <input type="text" name="@(i)szelkoordináta" id="koordinata" required placeholder="A helyes formátum : 12,345" />
+                                    <select name="@(i)Koordinata_hosszusag">
+                                        @if (Model.Teams[i].Coordinate.Longitude == CoordinateHelperLongitude.Keleti)
+                                        {
+                                            <option value="Keleti" selected>
+                                                Keleti
+                                            </option>
+                                            <option value="Nyugati">
+                                                Nyugati
+                                            </option>
+                                        }
+                                        else
+                                        {
+                                            <option value="Keleti">
+                                                Keleti
+                                            </option>
+                                            <option value="Nyugati" selected>
+                                                Nyugati
+                                            </option>
+                                        }
+                                    </select>
+                                    <label> Hosszúság</label>
+                                    <input type="text" name="@(i)hosszkoordináta" id="koordinata" required placeholder="A helyes formátum : 12,345" />
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <input type="submit" value="Tovább" class="w3-button w3-red w3-large w3-opacity" 
+                   style="position: absolute; top: 110%; left: 43%;" />
+        </div>
+
+    </form>
+</div>

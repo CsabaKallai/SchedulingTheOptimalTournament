@@ -1,0 +1,42 @@
+﻿@model Ligak_Optimalis_Kialakitasa.Models.TournamentConstraintsAndRules
+
+<div class="w3-center content">
+    <div>
+        <h2>  Adja meg az adatokat</h2>
+    </div>
+    <form asp-action="ConstraintsAndRules" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="CR-content">
+            <div class="w3-row w3-margin-top ">
+                <label asp-for="NumberOfTeams">Csapatok darabszáma</label>
+                <input asp-for="NumberOfTeams" class="w3-input input" value="4" required min="4" max="18" step="2" type="number" />
+                <span asp-validation-for="NumberOfTeams"></span>
+            </div>
+
+
+            <div class="w3-row w3-margin-top">
+                <label asp-for="NumberOfMatchesPlayedInAAwayGame" class="w3-row">Idegenben játszható meccsek száma egyhuzamban</label>
+                <input asp-for="NumberOfMatchesPlayedInAAwayGame" class="w3-input input" value="2" required min="2" max="10" type="number" />
+                <span asp-validation-for="NumberOfMatchesPlayedInAAwayGame"></span>
+                <br />
+            </div>
+
+            <div class="w3-margin-top" style="padding-bottom:20px">
+                <label>Ütemezési technikák:</label><br />
+                <input asp-for="Robins" class="w3-margin-top " type="radio" name="Robin" checked value="Single Round Robin" />Single Round Robin
+                <br />
+                <input asp-for="Robins" type="radio" class="w3-margin-top" name="Robin" value="Double Round Robin" />Double Round Robin
+            </div>
+
+            <input type="submit" style="margin:30px" value="Tovább" class="w3-button w3-red w3-large w3-opacity" />
+        </div>
+    </form>
+
+
+</div>
+
+
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
+

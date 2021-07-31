@@ -1,0 +1,59 @@
+﻿
+
+
+<section>
+    <div class="w3-container w3-center showcase">
+        <h1 class="w3-text-shadow w3-animate-opacity">Traveling Tournament problem</h1> <hr class="line"/>
+        <form action="/Home/ConstraintsAndRules" method="get">
+            <button class="w3-button w3-red w3-large w3-opacity">
+                Kipróbálom
+            </button>
+        </form>
+    </div>
+    <div class="w3-center">
+        <img src="~/images/showcaseimgs/showcase.PNG" />
+    </div>
+
+</section>
+
+
+<section class="section" id="problem">
+    <div>
+        <h2>A problémáról:</h2>
+
+        <p>
+            A Traveling Tournament probléma egy matematikai optimalizációs probléma. Egy vagy több célfüggvény minimumát keressük.
+            Elképzelhetjük úgy is, hogy a csapatoknak utazási gráfokat keresünk és ezeknek az utazási költségét szeretnénk minimalizálni.
+        </p>
+    </div>
+</section>
+
+<section class="section w3-light-grey">
+    <div>
+        <h2>Miben rejlik a nehézsége ?</h2>
+        <p>
+            Bebizonyították, hogy ez probléma egy <a target="_blank" href="https://www.isical.ac.in/~rishib_t/pubs/TTP_hardness.pdf">NP nehéz</a> probléma.
+            Ez azt jelenti, hogy nem megoldható polinom időben és a megoldás sem ellenőrizhető polinom időben! Kicsit kifejtve ez azt jelenti, hogy
+            nem ismerünk olyan megoldó algoritmust amely képes lenne a problémát megoldani akár O(N<sup>K</sup>), ahol N a bemeneti adat mérete és K egy tetszőlegesen nagy érték.
+            A számítási igény már kis csapatszámok esetében is óriási!
+
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div>
+        <h2>Hogyan célszerű megoldást találni ?</h2>
+        <p>
+            Az egzakt megoldó algoritmusok a nagy számítási igény miatt nem megvalosíthatók. Egy választásunk maradt, valamilyen heurisztikával kell
+            egy közelítő megoldást találjunk. A probléma térben a feladat megoldása valamilyen útvonalak halmaza, ami az egyes csapatok utazásait szimbolizálja.
+            Azonban az algoritmus nem ebben a térben dolgozik, hanem a keresési térben. Érdemes úgy kialakítani a rendszert, hogy ne útvonalakkal számoljon konkrétan
+            hanem számsorozatokkal. Innentől fogva a legtöbb heurisztika képes lesz hatékonyan kezelni a problémát.
+            A rendszeremben két fajta heurisztikát implementáltam. Szimulált lehűlést és egy genetikus algoritmust.
+            Mivel maga a rendszer számokkal dolgozik szükséges egy leképezést elkészíteni amely minden keresési térbeli elemet le tud képezni egy probléma térbeli elemmé.
+        </p>
+    </div>
+</section>
+
+@{ await Html.RenderPartialAsync("Footer");}
+

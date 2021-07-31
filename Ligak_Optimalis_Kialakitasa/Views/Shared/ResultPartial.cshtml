@@ -1,0 +1,20 @@
+﻿@model Ligak_Optimalis_Kialakitasa.Models.Result
+<div class="content" style="position:absolute">
+    <h2>@Model.NameOfTournament</h2>
+    <h5>Jóság érték:@Html.DisplayFor(model => model.GoodnessValue)</h5>
+    <br />
+    @foreach (var item in Model.TournamentSchedule)
+    {
+        <div>
+            <h3 style="text-align:center; color:rgba(244,67,54,0.68)">@(item.NumberOfRound + 1) forduló</h3>
+            <hr class="line"/>
+            @foreach (var round in item.MatchesOfRound)
+            {
+                <div class="box-content">
+                    <p>@Html.DisplayFor(x => round)</p>
+                </div>
+            }
+        </div>
+    }
+</div>
+

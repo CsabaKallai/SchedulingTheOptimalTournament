@@ -1,0 +1,156 @@
+.navbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.showcase {
+    background-position: center;
+    height: 300px;
+    padding: 50px;
+    color: #f44336;
+}
+
+.line {
+    background-position: center;
+    width: 300px;
+    margin: auto;
+    border-width: 3px;
+    border-color: #f44336;
+}
+    .showcase h1 {
+        font-size: 50px;
+        font-weight: 500;
+        text-transform: uppercase
+    }
+
+    .showcase hr {
+        width: 300px;
+        margin: auto;
+        border-width: 3px;
+        border-color: #f44336;
+    }
+
+    .showcase button {
+        margin-top: 70px;
+    }
+
+
+.section {
+    padding: 40px 0;
+    margin: 50px;
+    background-color: rgba(255,0,0,0.57);
+}
+
+    .section h2 {
+        padding: 0;
+        margin: 10px;
+    }
+
+    .section p {
+        margin: 10px;
+    }
+
+@media only screen and (max-width:636px) {
+    .content {
+        margin: 70px 50px;
+    }
+
+    .section {
+        margin: 15px 0px;
+        padding: 20px 0px;
+    }
+
+    /*.CR-content {
+        margin: 120px 800px 0px 20px;
+    }
+    .CR-content div{
+        width:500px;
+    }*/
+}
+
+@media only screen and (max-width:969px) {
+    .showcase {
+        margin-bottom: 120px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content {
+    position:fixed;
+    left:35%;
+    top:10%;
+    width:500px;
+}
+    .content h2 {
+        background-color: rgba(244,67,54,0.68);
+        padding: 10px;
+        text-align: center;
+        width:100%;
+        margin-top:30px;
+    }
+
+    .content p {
+        display: inline-block;
+        margin: 20px;
+        width: 20%;
+        vertical-align: middle;
+        font-weight:bold;
+    }
+    .content hr{
+        margin-bottom:30px;
+        width:80%;
+    }
+
+    .content label{
+        margin-right:20px;
+    }
+.CR-content h2 {
+    text-align: center;
+    height:50px;
+}
+
+.CR-content div>div {
+    /*width: 600px;*/
+    margin:20px;
+}
+
+#tableteams thead th{
+    padding:20px;
+}
+
+
+#tableteams tbody td {
+    padding: 5px;
+}
+#tableteams tbody label {
+    width:85px;
+    margin-left: 3px;
+    display:inline-block
+}
+#tableteams tbody select {
+    width:80px;
+}
+#tableteams tbody input {
+    margin:3px 0px;
+}
+
+.input {
+    width: 50%;
+    text-align: center;
+    /* left: 20%; */
+    margin-left: 140px;
+    margin-top: 20px;
+}
+
+
+    .box-content p{
+        margin-left: 40%;
+        width:auto;
+
+    }

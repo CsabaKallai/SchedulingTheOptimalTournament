@@ -1,0 +1,21 @@
+﻿@model Ligak_Optimalis_Kialakitasa.Models.Result
+<div>
+    @{ await Html.RenderPartialAsync("ResultPartial", Model);}
+
+
+    <div style="position:absolute;top: 11%;left: 5%;">
+        <form action="Optimize" method="post">
+            <fieldset class="sticky w3-margin-top 15">
+                <legend>Optimalizálás</legend>
+                <div>
+                    <input class="w3-margin 5" type="radio" name="optimize" checked value="Simulated Annealing" />Szimulált lehűtés
+                    <br />
+                    <input class="w3-margin 5" type="radio" name="optimize" value="Genetic algortyhm" />Genetikus algoritmus
+                </div>
+            </fieldset>
+            <div style="text-align:center">
+                <input type="submit" value="Optimalizálás" class="w3-button w3-red w3-large w3-opacity" />
+            </div>
+        </form>
+    </div>
+</div>
