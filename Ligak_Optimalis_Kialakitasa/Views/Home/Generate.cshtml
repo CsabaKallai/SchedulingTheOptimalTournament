@@ -1,40 +1,45 @@
 ﻿@model Ligak_Optimalis_Kialakitasa.Models.Tournament
+    <div class="main-container">
+        <div class="content">
+            <h2 style="background-color: rgba(244,67,54,0.68);text-align: center;margin: 0px; padding:10px;">@Model.NameOfTournament</h2>
+            <div id="ch1">
 
-    <div class="content">
-        <h2>@Model.NameOfTournament</h2>
-        @foreach (var team in Model.Teams)
-        {
-            <p>  @team.Name</p>
-            @if (@team.Coordinate.Latitude == CoordinateHelperLatitude.Északi)
-            {
-                @if (@team.Coordinate.Longitude == CoordinateHelperLongitude.Nyugati)
+                @foreach (var team in Model.Teams)
                 {
-                    <p>  É.Sz @team.Coordinate.LatitudeValue Ny.H @team.Coordinate.LongitudeValue</p>
-                }
-                else
-                {
-                    <p>  É.Sz @team.Coordinate.LatitudeValue K.H @team.Coordinate.LongitudeValue</p>
-                }
+                    <div style="align-self: center;justify-self: center;">
+                        <p style="width:unset;">  @team.Name</p>
+                    </div>
+                    <div style="align-self: center;justify-self: center;">
+                        @if (@team.Coordinate.Latitude == CoordinateHelperLatitude.Északi)
+                        {
+                            @if (@team.Coordinate.Longitude == CoordinateHelperLongitude.Nyugati)
+                            {
+                                <p style="width:auto">  É.Sz @team.Coordinate.LatitudeValue Ny.H @team.Coordinate.LongitudeValue</p>
+                            }
+                            else
+                            {
+                                <p style="width:auto">  É.Sz @team.Coordinate.LatitudeValue K.H @team.Coordinate.LongitudeValue</p>
+                            }
 
-            }
-            else
-            {
-                @if (@team.Coordinate.Longitude == CoordinateHelperLongitude.Nyugati)
-                {
-                    <p>  D.Sz @team.Coordinate.LatitudeValue Ny.H @team.Coordinate.LongitudeValue</p>
+                        }
+                        else
+                        {
+                            @if (@team.Coordinate.Longitude == CoordinateHelperLongitude.Nyugati)
+                            {
+                                <p style="width:auto">  D.Sz @team.Coordinate.LatitudeValue Ny.H @team.Coordinate.LongitudeValue</p>
+                            }
+                            else
+                            {
+                                <p style="width:auto">  D.Sz @team.Coordinate.LatitudeValue K.H @team.Coordinate.LongitudeValue</p>
+                            }
+                        }
+                    </div>
                 }
-                else
-                {
-                    <p>  D.Sz @team.Coordinate.LatitudeValue K.H @team.Coordinate.LongitudeValue</p>
-                }
-            }
-            <hr class="line"/>
-        }
-
-
-        <form action="Result" method="get">
-            <div class="form-group" style="text-align:center">
-                <input type="submit" value="Bajnokság generálása" class="w3-button w3-red w3-large w3-opacity" />
             </div>
-        </form>
+            <form action="Result" method="get">
+                <div class="form-group" style="text-align:center">
+                    <input id="btnid" type="submit" value="Bajnokság generálása" class="w3-button w3-red w3-large w3-opacity"/>
+                </div>
+            </form>
+        </div>
     </div>

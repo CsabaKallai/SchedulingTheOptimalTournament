@@ -1,47 +1,46 @@
 ﻿@model Ligak_Optimalis_Kialakitasa.Models.Tournament
-<div class="content" style="width:650px">
-    <form asp-action="Teams" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div>
-            <label asp-for="NameOfTournament"></label>
-            <input asp-for="NameOfTournament" required type="text" />
-            <span asp-validation-for="NameOfTournament"></span>
-        </div>
+<div class="main-container">
+    <div class="teamscontent">
+        <form asp-action="Teams" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div id="div1">
+                <label asp-for="NameOfTournament"></label>
+                <input asp-for="NameOfTournament" required type="text" />
+                <span asp-validation-for="NameOfTournament"></span>
+            </div>
+            <div id="div2">
+                <h2>Csapatok bevitele</h2>
 
-        <h2>Csapatok bevitele</h2>
+                <div id="teamscoordinate">
+                    <div scope="col" align="center">
+                        A csapatok nevei
+                    </div>
+                    <div scope="col" align="center">
+                        A csapatok koordinátái
+                    </div>
+                </div>
+                <div id="data">
 
-        <div style="line-height: 1.7">
-            <table id="tableteams">
-                <thead>
-                    <tr>
-                        <th scope="col" align="center">
-                            A csapatok nevei
-                        </th>
-                        <th scope="col" align="center">
-                            A csapatok koordinátái
-                        </th>
-                    </tr>
 
-                </thead>
-                <tbody>
                     @for (int i = 0; i < Model.Teams.Length; i++)
                     {
-                        <tr>
-                            <td>
-                                @if (Model.Teams[i].Name == "Hibás név!")
-                                {
-                                    <input type="text" id="csapat" name="@(i)csapat" placeholder="Hibás név" />
-                                }
-                                else if (Model.Teams[i].Name == null)
-                                {
-                                    <input type="text" id="csapat" name="@(i)csapat" />
-                                }
-                            </td>
-
-                            <td>
+                        <div id="table1" style="display: grid;grid-template-columns: auto auto; margin:0px 10px">
+                            <div id="table1-content" style="align-self: center; place-self: center;">
+                                <p>
+                                    @if (Model.Teams[i].Name == "Hibás név!")
+                                    {
+                                        <input type="text" id="csapat" name="@(i)csapat" placeholder="Hibás név" />
+                                    }
+                                    else if (Model.Teams[i].Name == null)
+                                    {
+                                        <input type="text" id="csapat" name="@(i)csapat" />
+                                    }
+                                </p>
+                            </div>
+                            <div id="table2" style="display: grid; grid-template-columns: auto auto auto;">
                                 @if (Model.Teams[i].Coordinate.LatitudeValue <= 0 && Model.Teams[i].Coordinate.LongitudeValue <= 0)
                                 {
-                                    <select name="@(i)Koordinata_szelesseg">
+                                    <select name="@(i)Koordinata_szelesseg" style="margin:4px 0px;">
                                         @if (Model.Teams[i].Coordinate.Latitude == CoordinateHelperLatitude.Északi)
                                         {
                                             <option value="Északi" selected>
@@ -61,9 +60,9 @@
                                             </option>
                                         }
                                     </select>
-                                    <label> Szélesség</label>
-                                    <input type="text" name="@(i)szelkoordináta" id="koordinata" required placeholder="A helyes formátum : 12,345" />
-                                    <select name="@(i)Koordinata_hosszusag">
+                                    <label style="margin:1px 4px; align-self:center"> Szélesség</label>
+                                    <input style=" margin: 1px 4px;" type="text" name="@(i)szelkoordináta" id="koordinata" required placeholder="A helyes formátum : 12,345" />
+                                    <select name="@(i)Koordinata_hosszusag" style="margin:4px 0px;">
                                         @if (Model.Teams[i].Coordinate.Longitude == CoordinateHelperLongitude.Keleti)
                                         {
                                             <option value="Keleti" selected>
@@ -83,17 +82,17 @@
                                             </option>
                                         }
                                     </select>
-                                    <label> Hosszúság</label>
-                                    <input type="text" name="@(i)hosszkoordináta" id="koordinata" required placeholder="A helyes formátum : 12,345" />
+                                    <label style="margin:1px 4px; align-self:center"> Hosszúság</label>
+                                    <input style=" margin: 1px 4px;" type="text" name="@(i)hosszkoordináta" id="koordinata" required placeholder="A helyes formátum : 12,345" />
                                 }
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
                     }
-                </tbody>
-            </table>
-            <input type="submit" value="Tovább" class="w3-button w3-red w3-large w3-opacity" 
-                   style="position: absolute; top: 110%; left: 43%;" />
-        </div>
 
-    </form>
+                </div>
+                <input type="submit" value="Tovább" class="w3-button w3-red w3-large w3-opacity" style="margin: 50px 43%;" />
+            </div>
+            
+        </form>
+    </div>
 </div>

@@ -5,6 +5,16 @@
     width: 100%;
 }
 
+.main-container {
+    margin: 70px auto;
+    width: 70%;
+    max-width: 750px;
+}
+
+.w3-container h1 {
+    color: rgba(244,67,54,0.68);
+}
+
 .showcase {
     background-position: center;
     height: 300px;
@@ -16,8 +26,8 @@
     background-position: center;
     width: 300px;
     margin: auto;
-    border-width: 3px;
-    border-color: #f44336;
+    border-width: 1px;
+    border-color: rgba(244,67,54,0.68);
 }
     .showcase h1 {
         font-size: 50px;
@@ -25,12 +35,21 @@
         text-transform: uppercase
     }
 
-    .showcase hr {
-        width: 300px;
-        margin: auto;
-        border-width: 3px;
-        border-color: #f44336;
-    }
+
+.content #ch1 {
+    display: grid;
+    grid-template-columns: auto 70%
+}
+
+.content #btnid {
+    margin: 20px auto;
+}
+.showcase hr {
+    width: 400px;
+    margin: auto;
+    border-width: 3px;
+    border-color: rgba(244,67,54,0.68);
+}
 
     .showcase button {
         margin-top: 70px;
@@ -50,24 +69,14 @@
 
     .section p {
         margin: 10px;
+        text-align:justify;
     }
 
 @media only screen and (max-width:636px) {
-    .content {
-        margin: 70px 50px;
-    }
-
     .section {
         margin: 15px 0px;
         padding: 20px 0px;
     }
-
-    /*.CR-content {
-        margin: 120px 800px 0px 20px;
-    }
-    .CR-content div{
-        width:500px;
-    }*/
 }
 
 @media only screen and (max-width:969px) {
@@ -76,23 +85,133 @@
     }
 }
 
+@media only screen and (max-width:400px) {
+   #table1 input{
+       width:100%;
+   }
+}
+
+@media only screen and (max-width:680px) {
+    .navbar span {
+       display:grid;
+       float:unset!important;
+    }
+
+    .content {
+        margin-top: 200px!important;
+    }
+
+    .showcase{
+        margin-top:120px;
+        padding-left:10px;
+    }
+
+    .showcase h1{
+        font-size:40px;
+    }
+}
+
+@media only screen and (max-width:1100px) {
+    #table1{
+        display:block!important;
+    }
+
+    #table2 {
+        margin: 0px 20px;
+    }
+}
+@media only screen and (max-width:430px){
+
+    #ch1{
+        display:block;
+    }
+
+    #btnid{
+        padding: 0;
+    }
+}
+
+
+@media only screen and (max-width:620px) {
+    
+    #table2 {
+        display:table-caption!important;
+        margin: 0px 20px;
+    }
+
+    #teamscoordinate{
+        display:none!important;
+    }
+    #table1 p::before {
+        content: "Csapat neve";
+        display:block;
+    }
+    #table1 p::after{
+        content:"Csapat koordinátája";
+        display:block;
+    }
+
+    #table1-content input:first-of-type{
+        margin-bottom:10px;
+    }
+    .content p{
+        width:auto!important;
+    }
+
+    #table2 input{
+        margin:0!important;
+    }
+}
+
+
+
 img {
     max-width: 100%;
     height: auto;
 }
 
+.teamscontent #div1 {
+    margin: 20px auto;
+    text-align: center;
+    display:flex;
+}
+
+.teamscontent #div1 label{
+    float:left;
+    margin: 0 10px;
+}
+
+.teamscontent #div2 {
+    border: 1px solid rgba(244,67,54,0.68);
+}
+
+    .teamscontent #div2 h2 {
+        margin-bottom: 30px;
+        padding-left:10px;
+    }
+
+#div2 #teamscoordinate {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 20px 10px;
+}
+
+#teamscoordinate #data {
+    line-height: 1.7;
+    display: grid;
+    grid-gap: 10px;
+    margin-bottom: 10px;
+}
+
 .content {
-    position:fixed;
-    left:35%;
-    top:10%;
-    width:500px;
+    border: 1px solid rgba(244,67,54,0.68);
 }
     .content h2 {
         background-color: rgba(244,67,54,0.68);
         padding: 10px;
         text-align: center;
         width:100%;
-        margin-top:30px;
+        margin:0px;
     }
 
     .content p {
@@ -107,50 +226,44 @@ img {
         width:80%;
     }
 
-    .content label{
-        margin-right:20px;
-    }
+.CR-content {
+    margin-top: 30px;
+}
 .CR-content h2 {
     text-align: center;
     height:50px;
 }
 
-.CR-content div>div {
-    /*width: 600px;*/
-    margin:20px;
+    .CR-content #div1, .CR-content #div2 {
+        margin: 20px;
+        display: grid;
+        grid-template-rows: auto;
+    }
+        #div1 input, #div2 input {
+            place-self: center;
+        }
+
+#div3 {
+    padding-bottom: 20px;
+    margin:10px;
 }
+
+    .CR-content input {
+        margin: 30px;
+    }
 
 #tableteams thead th{
     padding:20px;
 }
 
-
-#tableteams tbody td {
-    padding: 5px;
-}
-#tableteams tbody label {
-    width:85px;
-    margin-left: 3px;
-    display:inline-block
-}
-#tableteams tbody select {
-    width:80px;
-}
-#tableteams tbody input {
-    margin:3px 0px;
-}
-
 .input {
     width: 50%;
     text-align: center;
-    /* left: 20%; */
-    margin-left: 140px;
     margin-top: 20px;
 }
 
 
     .box-content p{
-        margin-left: 40%;
-        width:auto;
+       width:auto;
 
     }
